@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bronze spike — tested Stage-1 hazard</title>
+<style>
+  html,body{margin:0;background:#111;color:#eee;font:28px/1.4 sans-serif}
+  main{max-width:1100px;margin:0 auto;padding:1.2em 4vw 3em}
+  h1{font-size:1.5em;margin:.2em 0 .4em}
+  .flag{display:inline-block;background:#2a6;color:#fff;font-weight:700;padding:.15em .5em;border-radius:.2em;letter-spacing:.02em}
+  p,li{margin:.5em 0;max-width:42em}
+  code,pre{font:0.72em/1.35 ui-monospace,monospace;color:#cfe}
+  figure{margin:1.6em 0 2em}
+  figcaption{margin:0 0 .5em;font-size:1.05em;color:#9cf;font-weight:700}
+  img{display:block;width:min(96vw,960px);height:auto;image-rendering:pixelated;image-rendering:crisp-edges;background:#000;border:4px solid #333}
+  .wide{width:min(96vw,1100px)}
+  a{color:#9cf}
+</style>
+</head>
+<body>
+<main>
+  <p class="flag">Tested</p>
+  <h1>Stage 1 rotating spike — weathered bronze</h1>
+  <p>Official v10 stream candidate. The cylinder body, rings, wall connectors, and terminal caps now sit on Stage-1-only BG palette 7 with a weathered-bronze row. Support stays on BG6. Pickups stay on BG5. BG7 is restored outside Stage 1. Attract-demo timing is unchanged from main.</p>
+  <p>Palette row (BG7, Stage 1 only): <code>7FFF 7E94 19B2 3D4A</code> — white, floor blue, weathered bronze #946b31, floor shadow.</p>
+  <ul>
+    <li>Parent (current main / v9): <code>01f8e0b22719a438c9c28f16c09c5bde8ae06f3f8561ffe0c88c08ba02b39d20</code></li>
+    <li>JP v10: <code>db348784914e4470db2878724c41073cd0fe564602e6788598706a3315fdd8af</code></li>
+    <li>EN v10: <code>d93f34a5d6c7581dbabd0248698940db6e440b82eedc2e0846d2dfe8ce74720b</code></li>
+  </ul>
+  <p>Headless captures. Individual frames are 3× nearest-neighbor; the before/after sheet and rotation strip are native composites. Official stream suite: 100/100, two byte-identical builds.</p>
+
+  <figure>
+    <figcaption>Current main — gold / metal body</figcaption>
+    <img src="before-current-main.png" width="480" height="432" alt="Current main Stage 1 spike, gold body">
+  </figure>
+
+  <figure>
+    <figcaption>Before / after, six rotation frames</figcaption>
+    <img class="wide" src="before-after-sheet.png" alt="Side-by-side gold vs bronze spike across six rotation frames">
+  </figure>
+
+  <figure>
+    <figcaption>Bronze — rotation frames 1–6</figcaption>
+    <img class="wide" src="bronze-rot-strip.png" alt="Weathered bronze spike rotation strip">
+  </figure>
+
+  <figure>
+    <figcaption>Bronze — rotation frame 1</figcaption>
+    <img src="bronze-rot-01.png" width="480" height="432" alt="Weathered bronze spike, rotation frame 1">
+  </figure>
+
+  <figure>
+    <figcaption>Bronze — rotation frame 2</figcaption>
+    <img src="bronze-rot-02.png" width="480" height="432" alt="Weathered bronze spike, rotation frame 2">
+  </figure>
+
+  <figure>
+    <figcaption>Bronze — rotation frame 3</figcaption>
+    <img src="bronze-rot-03.png" width="480" height="432" alt="Weathered bronze spike, rotation frame 3">
+  </figure>
+
+  <figure>
+    <figcaption>Bronze — rotation frame 4</figcaption>
+    <img src="bronze-rot-04.png" width="480" height="432" alt="Weathered bronze spike, rotation frame 4">
+  </figure>
+
+  <figure>
+    <figcaption>Bronze — rotation frame 5</figcaption>
+    <img src="bronze-rot-05.png" width="480" height="432" alt="Weathered bronze spike, rotation frame 5">
+  </figure>
+
+  <figure>
+    <figcaption>Bronze — rotation frame 6</figcaption>
+    <img src="bronze-rot-06.png" width="480" height="432" alt="Weathered bronze spike, rotation frame 6">
+  </figure>
+
+  <figure>
+    <figcaption>Stage 1 pal-5 turbo / “P” power pickup (walls stay dungeon gray, not bronze)</figcaption>
+    <img src="stage1-power-pickup.png" width="480" height="432" alt="Stage 1 turbo power pickup on palette 5 with unchanged walls">
+  </figure>
+
+  <p>Notes: the four-color row keeps floor-blue and floor-shadow for blending, so the cylinder highlight is white rather than a second bronze shade. The orb in the spike room is a pal-2 pickup, not a pal-5 power item. Factory receipts stay on palette 5 so the r534 chain remains byte-identical. A livestream YAML tweak stays in the editor until a later source-chain stage bakes it.</p>
+  <p><a href="../bronze-spike-preview/">Earlier rough preview (untested)</a></p>
+</main>
+</body>
+</html>
