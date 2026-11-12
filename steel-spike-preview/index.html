@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Steel spike — rough preview, untested</title>
+<style>
+  html,body{margin:0;background:#111;color:#eee;font:28px/1.4 sans-serif}
+  main{max-width:1200px;margin:0 auto;padding:1.2em 4vw 3em}
+  h1{font-size:1.45em;margin:.2em 0 .35em}
+  h2{font-size:1.15em;margin:1.4em 0 .4em;color:#9cf}
+  .flag{display:inline-block;background:#a33;color:#fff;font-weight:700;padding:.15em .5em;border-radius:.2em}
+  p{margin:.55em 0 1em;max-width:42em}
+  .note{color:#ccc;max-width:44em}
+  figure{margin:1.4em 0 1.8em}
+  figcaption{margin:0 0 .45em;font-size:1.05em;color:#9cf;font-weight:700}
+  img{display:block;width:min(96vw,1100px);height:auto;image-rendering:pixelated;image-rendering:crisp-edges;background:#000;border:4px solid #333}
+  .row{display:flex;flex-wrap:wrap;gap:.7em;margin:.4em 0 1em}
+  .chip{display:flex;align-items:center;gap:.55em;background:#1c1c1c;border:2px solid #333;border-radius:.3em;padding:.35em .6em .35em .35em}
+  .sw{width:1.3em;height:1.3em;border-radius:.2em;border:2px solid #555;flex:0 0 auto}
+  .chip code{font-size:.75em;color:#fd6}
+  table{border-collapse:collapse;margin:0 0 1.2em;font-size:.85em;max-width:100%}
+  th,td{border:2px solid #333;padding:.35em .55em;text-align:left;vertical-align:middle}
+  th{background:#1a1a1a;color:#9cf}
+  td.swcell span{display:inline-block;width:1.1em;height:1.1em;border:2px solid #555;vertical-align:middle;margin-right:.35em}
+</style>
+</head>
+<body>
+<main>
+  <p class="flag">Rough preview, untested</p>
+  <h1>Stage 1 rotating spike — distinct steel options</h1>
+  <p>Throwaway visual only. Body and teeth stay on background palette 7. Floor blue and floor shadow are locked. Only the highlight and the base colors were retuned. This has not gone through the full test suite. The official bronze page is unchanged.</p>
+  <p class="note">What you already saw as “bronze” in this room is actually a gray steel row already in the live CRAM: white, mid gray, dark gray, black. The YAML weathered-bronze row is included below as a poked reference so you can compare it with the three new options.</p>
+
+  <h2>Colors (RGB555 words, same as the YAML)</h2>
+  <table>
+    <tr><th>Row</th><th>Highlight (0)</th><th>Floor blue (1, locked)</th><th>Base (2)</th><th>Floor shadow (3, locked)</th></tr>
+    <tr>
+      <td>Current main, this room</td>
+      <td><span class="sw" style="background:#FFFFFF;display:inline-block;width:1em;height:1em;border:2px solid #555;vertical-align:middle"></span> 7FFF #FFFFFF</td>
+      <td>5294 #A5A5A5 <em>(not locked here)</em></td>
+      <td><span class="sw" style="background:#424242;display:inline-block;width:1em;height:1em;border:2px solid #555;vertical-align:middle"></span> 2108 #424242</td>
+      <td>0000 #000000</td>
+    </tr>
+    <tr>
+      <td>YAML bronze (poked reference)</td>
+      <td>7FFF #FFFFFF</td>
+      <td>7E94 #A5A5FF</td>
+      <td><span class="sw" style="background:#946B31;display:inline-block;width:1em;height:1em;border:2px solid #555;vertical-align:middle"></span> 19B2 #946B31</td>
+      <td>3D4A #52527B</td>
+    </tr>
+    <tr>
+      <td>1. Darker cool steel</td>
+      <td><span class="sw" style="background:#94A5BD;display:inline-block;width:1em;height:1em;border:2px solid #555;vertical-align:middle"></span> 5E92 #94A5BD</td>
+      <td>7E94 #A5A5FF</td>
+      <td><span class="sw" style="background:#293142;display:inline-block;width:1em;height:1em;border:2px solid #555;vertical-align:middle"></span> 20C5 #293142</td>
+      <td>3D4A #52527B</td>
+    </tr>
+    <tr>
+      <td>2. Warmer steel</td>
+      <td><span class="sw" style="background:#C5B59C;display:inline-block;width:1em;height:1em;border:2px solid #555;vertical-align:middle"></span> 4ED8 #C5B59C</td>
+      <td>7E94 #A5A5FF</td>
+      <td><span class="sw" style="background:#423A31;display:inline-block;width:1em;height:1em;border:2px solid #555;vertical-align:middle"></span> 18E8 #423A31</td>
+      <td>3D4A #52527B</td>
+    </tr>
+    <tr>
+      <td>3. Charcoal with rust</td>
+      <td><span class="sw" style="background:#A55229;display:inline-block;width:1em;height:1em;border:2px solid #555;vertical-align:middle"></span> 1554 #A55229</td>
+      <td>7E94 #A5A5FF</td>
+      <td><span class="sw" style="background:#292931;display:inline-block;width:1em;height:1em;border:2px solid #555;vertical-align:middle"></span> 18A5 #292931</td>
+      <td>3D4A #52527B</td>
+    </tr>
+  </table>
+  <p class="note">Wall YAML BG6, for contrast: 7FFF #FFFFFF, 7F1B #DEC5FF, 3D08 #42427B, 0000 #000000. In this room the visible brick ledges also use a neutral gray (#A5A5A5 / #424242), which is why current main can blend into the walls.</p>
+
+  <h2>Side by side — rotation frame 1</h2>
+  <figure>
+    <figcaption>Current main, cool steel, warm steel, charcoal + rust</figcaption>
+    <img src="compare-rot-01.png" alt="Four-way compare, rotation frame 1">
+  </figure>
+  <figure>
+    <figcaption>Wall-close crop of the same frame</figcaption>
+    <img src="compare-wallclose-rot-01.png" alt="Wall-close four-way compare, frame 1">
+  </figure>
+  <figure>
+    <figcaption>Current main in this room vs YAML bronze, poked for reference</figcaption>
+    <img src="compare-current-vs-yaml-rot-01.png" alt="Current main versus poked YAML bronze">
+  </figure>
+
+  <h2>Current main — as it looks in this room today</h2>
+  <figure>
+    <figcaption>Current main — rotation frame 1</figcaption>
+    <img src="bronze-rot-01.png" width="480" height="432" alt="Current main Stage 1 spike, gray body">
+  </figure>
+  <figure>
+    <figcaption>Current main — rotation frame 3</figcaption>
+    <img src="bronze-rot-03.png" width="480" height="432" alt="Current main spike, rotation frame 3">
+  </figure>
+  <figure>
+    <figcaption>Current main — rotation frame 5</figcaption>
+    <img src="bronze-rot-05.png" width="480" height="432" alt="Current main spike, rotation frame 5">
+  </figure>
+  <figure>
+    <figcaption>Current main — wall-close, frame 1</figcaption>
+    <img src="bronze-wallclose-rot-01.png" alt="Current main spike wall-close">
+  </figure>
+
+  <h2>1. Darker cool steel</h2>
+  <p>Charcoal gunmetal highlight and base, cooler and darker than the gray walls.</p>
+  <figure>
+    <figcaption>Cool steel — rotation frame 1</figcaption>
+    <img src="cool-rot-01.png" width="480" height="432" alt="Cool steel spike, frame 1">
+  </figure>
+  <figure>
+    <figcaption>Cool steel — rotation frame 3</figcaption>
+    <img src="cool-rot-03.png" width="480" height="432" alt="Cool steel spike, frame 3">
+  </figure>
+  <figure>
+    <figcaption>Cool steel — rotation frame 5</figcaption>
+    <img src="cool-rot-05.png" width="480" height="432" alt="Cool steel spike, frame 5">
+  </figure>
+  <figure>
+    <figcaption>Cool steel — wall-close, frame 1</figcaption>
+    <img src="cool-wallclose-rot-01.png" alt="Cool steel wall-close">
+  </figure>
+
+  <h2>2. Warmer steel</h2>
+  <p>A slightly warm gray, like aged iron, not the wall slate.</p>
+  <figure>
+    <figcaption>Warm steel — rotation frame 1</figcaption>
+    <img src="warm-rot-01.png" width="480" height="432" alt="Warm steel spike, frame 1">
+  </figure>
+  <figure>
+    <figcaption>Warm steel — rotation frame 3</figcaption>
+    <img src="warm-rot-03.png" width="480" height="432" alt="Warm steel spike, frame 3">
+  </figure>
+  <figure>
+    <figcaption>Warm steel — rotation frame 5</figcaption>
+    <img src="warm-rot-05.png" width="480" height="432" alt="Warm steel spike, frame 5">
+  </figure>
+  <figure>
+    <figcaption>Warm steel — wall-close, frame 1</figcaption>
+    <img src="warm-wallclose-rot-01.png" alt="Warm steel wall-close">
+  </figure>
+
+  <h2>3. Charcoal with a hint of rust</h2>
+  <p>Dark steel body with a rusty-brown highlight. This one stands furthest from the blue-gray walls.</p>
+  <figure>
+    <figcaption>Charcoal + rust — rotation frame 1</figcaption>
+    <img src="rust-rot-01.png" width="480" height="432" alt="Charcoal rust spike, frame 1">
+  </figure>
+  <figure>
+    <figcaption>Charcoal + rust — rotation frame 3</figcaption>
+    <img src="rust-rot-03.png" width="480" height="432" alt="Charcoal rust spike, frame 3">
+  </figure>
+  <figure>
+    <figcaption>Charcoal + rust — rotation frame 5</figcaption>
+    <img src="rust-rot-05.png" width="480" height="432" alt="Charcoal rust spike, frame 5">
+  </figure>
+  <figure>
+    <figcaption>Charcoal + rust — wall-close, frame 1</figcaption>
+    <img src="rust-wallclose-rot-01.png" alt="Charcoal rust wall-close">
+  </figure>
+
+  <h2>YAML bronze, poked for reference</h2>
+  <p class="note">This is the weathered-bronze row from the palette file (white highlight, bronze base), forced into CRAM. It is not what the current official screenshots of this room show.</p>
+  <figure>
+    <figcaption>YAML bronze — rotation frame 1</figcaption>
+    <img src="yamlbronze-rot-01.png" width="480" height="432" alt="Poked YAML bronze spike, frame 1">
+  </figure>
+  <figure>
+    <figcaption>YAML bronze — rotation frame 3</figcaption>
+    <img src="yamlbronze-rot-03.png" width="480" height="432" alt="Poked YAML bronze spike, frame 3">
+  </figure>
+  <figure>
+    <figcaption>YAML bronze — rotation frame 5</figcaption>
+    <img src="yamlbronze-rot-05.png" width="480" height="432" alt="Poked YAML bronze spike, frame 5">
+  </figure>
+
+  <h2>Stage 1 power pickup, palette 5, unchanged</h2>
+  <figure>
+    <figcaption>Turbo / “P” pickup stays gold and red on all three steel variants</figcaption>
+    <img src="turbo-powerup.png" width="480" height="432" alt="Stage 1 turbo power pickup, pal 5 gold and red">
+  </figure>
+</main>
+</body>
+</html>
